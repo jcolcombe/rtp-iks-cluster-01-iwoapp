@@ -4,7 +4,7 @@ data "terraform_remote_state" "iksws" {
   config = {
     organization = "CiscoDevNet"
     workspaces = {
-      name = var.ikswsname 
+      name = var.ikswsname
     }
   }
 }
@@ -30,7 +30,7 @@ resource helm_release iwok8scollector {
   }
   set {
     name  = "targetName"
-    value = "sbcluster"
+    value = "rtp_k8_cluster"
   }
 }
 
@@ -46,5 +46,3 @@ provider "helm" {
 locals {
   kube_config = yamldecode(data.terraform_remote_state.iksws.outputs.kube_config)
 }
-
-
