@@ -2,7 +2,7 @@
 data "terraform_remote_state" "iksws" {
   backend = "remote"
   config = {
-    organization = "CiscoDevNet"
+    organization = "cisco-intersight-demo"
     workspaces = {
       name = var.ikswsname
     }
@@ -30,7 +30,7 @@ resource helm_release iwok8scollector {
   }
   set {
     name  = "targetName"
-    value = "rtp_k8_ist_01"
+    value = "rtp-iks-cluster-01"
   }
 }
 
